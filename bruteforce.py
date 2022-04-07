@@ -1,5 +1,8 @@
+from datetime import datetime
 import csv
 
+
+start_timer = datetime.now()
 
 stocks_list = []
 
@@ -25,3 +28,8 @@ with open("data.csv", newline="") as file:
         i += 1
         if i == 10:
             break
+
+
+end_timer = datetime.now()
+
+print(end_timer - start_timer)
