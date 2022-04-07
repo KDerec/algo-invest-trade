@@ -1,5 +1,6 @@
 from datetime import datetime
 import csv
+import itertools
 
 
 start_timer = datetime.now()
@@ -29,6 +30,25 @@ with open("data.csv", newline="") as file:
         if i == 10:
             break
 
+max_result = 0
+
+for arrangement in itertools.permutations(stocks_list):
+    capital = 500
+    result = 0
+    list_to_display = []
+    for stock in arrangement:
+        capital -= stock.cost
+        if capital < 0:
+            break
+        # stock_name = stock.name.replace("Action-", "")
+        list_to_display.append(stock.name)
+        result += stock.profit * 100
+
+    if max_result < result:
+        max_result = result
+        print(f"Le nouveau meilleur résultat est {max_result / 100} €")
+
+        print(f"L'arrangement correspondant est {list_to_display}")
 
 end_timer = datetime.now()
 
