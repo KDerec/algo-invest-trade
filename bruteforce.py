@@ -8,14 +8,6 @@ start_timer = datetime.now()
 stocks_list = []
 
 
-class Stock:
-    def __init__(self, name, cost, profitability):
-        self.name = name
-        self.cost = int(cost)
-        self.profitability = int(profitability)
-        self.profit = round(self.cost * (self.profitability / 100), 2)
-
-
 with open("data.csv", newline="") as file:
     has_header = csv.Sniffer().has_header(file.read(1024))
     file.seek(0)
@@ -24,7 +16,12 @@ with open("data.csv", newline="") as file:
         next(reader)
     i = 0
     for row in reader:
-        stock = Stock(row[0], row[1], row[2])
+        name = row[0]
+        cost = int(row[1])
+        profitability = int(row[2])
+        profit = round(cost * (profitability / 100), 2)
+
+        stock = (name, cost, profit)
         stocks_list.append(stock)
         i += 1
         if i == 10:
@@ -35,20 +32,20 @@ max_result = 0
 for arrangement in itertools.permutations(stocks_list):
     capital = 500
     result = 0
-    list_to_display = []
+    # list_to_display = []
     for stock in arrangement:
-        capital -= stock.cost
+        capital -= stock[1]
         if capital < 0:
             break
         # stock_name = stock.name.replace("Action-", "")
-        list_to_display.append(stock.name)
-        result += stock.profit * 100
+        # list_to_display.append(stock[0])
+        result += stock[2] * 100
 
     if max_result < result:
         max_result = result
         print(f"Le nouveau meilleur résultat est {max_result / 100} €")
 
-        print(f"L'arrangement correspondant est {list_to_display}")
+        # print(f"L'arrangement correspondant est {list_to_display}")
 
 end_timer = datetime.now()
 
