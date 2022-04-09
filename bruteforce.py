@@ -1,11 +1,8 @@
-from datetime import datetime
 import csv
-import itertools
+from datetime import datetime
 
 
 start_timer = datetime.now()
-
-stocks_list = []
 
 
 with open("data.csv", newline="") as file:
@@ -15,6 +12,7 @@ with open("data.csv", newline="") as file:
     if has_header:
         next(reader)
     i = 0
+    stocks_list = []
     for row in reader:
         name = row[0]
         cost = int(row[1])
@@ -24,29 +22,32 @@ with open("data.csv", newline="") as file:
         stock = (name, cost, profit)
         stocks_list.append(stock)
         i += 1
-        if i == 10:
+        if i == 20:
             break
 
-max_result = 0
 
-for arrangement in itertools.permutations(stocks_list):
-    capital = 500
-    result = 0
-    # list_to_display = []
-    for stock in arrangement:
-        capital -= stock[1]
-        if capital < 0:
-            break
-        # stock_name = stock.name.replace("Action-", "")
-        # list_to_display.append(stock[0])
-        result += stock[2] * 100
+def greedy_algo(capital, stocks_list):
+    sorted_stocks_list = sorted(stocks_list, key=lambda x: x[2])
+    selected_stock = []
+    total_cost = 0
 
-    if max_result < result:
-        max_result = result
-        print(f"Le nouveau meilleur résultat est {max_result / 100} €")
+    while sorted_stocks_list:
+        stock = sorted_stocks_list.pop()
+        if stock[1] + total_cost <= capital:
+            selected_stock.append(stock)
+            total_cost += stock[1]
 
-        # print(f"L'arrangement correspondant est {list_to_display}")
+    total_profit = sum([i[2] * 100 for i in selected_stock]) / 100
+
+    return total_profit, total_cost, selected_stock
+
+
+total_profit, total_cost, selected_stock = greedy_algo(500, stocks_list)
+
+print(f"Le bénéfice est de {total_profit}€")
+print(f"Le coût total est de {total_cost}€")
+print(f"Liste des actions sélectionnées :\n{selected_stock}")
 
 end_timer = datetime.now()
 
-print(end_timer - start_timer)
+print(f"Temps d'exécution du programme : {end_timer - start_timer}")
