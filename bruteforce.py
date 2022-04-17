@@ -53,11 +53,14 @@ capital = 500
 
 best_profit, stocks_result = bruteforce_algo(capital, stocks_list)
 list_to_display = []
+capital_depense = 0
 for stock in stocks_result:
     list_to_display.append(stock.name)
+    capital_depense += stock.cost
 
 print(f"Le montant du bénéfice est de {best_profit}€.")
 print(f"La liste d'action est : {list_to_display}")
+print(f"Le montant de l'investissement est de {capital_depense}€.")
 
 end_timer = datetime.now()
 
