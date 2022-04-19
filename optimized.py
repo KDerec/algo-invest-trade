@@ -32,7 +32,7 @@ def optimized_algo(capital, stocks_list):
     table = [[0 for x in range(capital + 1)] for x in range(len(stocks_list) + 1)]
 
     for i in range(1, len(stocks_list) + 1):
-        for w in range(1, w + 1):
+        for w in range(1, capital + 1):
             if stocks_list[i - 1].cost <= w:
                 table[i][w] = max(
                     stocks_list[i - 1].profit
