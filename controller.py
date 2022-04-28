@@ -2,13 +2,14 @@ import csv
 from stockmodel import Stock
 
 
-def create_stocks_list():
+def create_stocks_list(max_number_item=''):
     with open("data.csv", newline="") as file:
         has_header = csv.Sniffer().has_header(file.read(1024))
         file.seek(0)
         reader = csv.reader(file)
         if has_header:
             next(reader)
+        i = 0
         stocks_list = []
         for row in reader:
             name = row[0]
@@ -16,6 +17,9 @@ def create_stocks_list():
             profitability = row[2]
             stock = Stock(name, cost, profitability)
             stocks_list.append(stock)
+            i += 1
+            if i == max_number_item:
+                break
 
     return stocks_list
 
