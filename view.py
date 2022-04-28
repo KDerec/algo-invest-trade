@@ -11,6 +11,6 @@ def display_result_information(best_profit, stocks_result, time):
     Le montant du bénéfice est de {best_profit}€.
     La liste d'action est : {stocks_name_list}.
     Le montant de l'investissement est de {spent_capital}€.
-    Temps d'exécution du programme : {time}.
+    Temps d'exécution du programme : {time} secondes.
     """
     )
