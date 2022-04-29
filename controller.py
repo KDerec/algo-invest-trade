@@ -13,10 +13,8 @@ def create_stocks_list(max_number_item=''):
         stocks_list = []
         for row in reader:
             name = row[0]
-            cost = row[1]
-            profitability = row[2]
-            stock = Stock(name, cost, profitability)
-            stocks_list.append(stock)
+            cost = int(row[1])
+            profitability = int(row[2])
             i += 1
             if i == max_number_item:
                 break
