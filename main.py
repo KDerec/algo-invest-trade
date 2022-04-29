@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from time import perf_counter
+import view
 from controller import create_stocks_list
-from view import display_result_information
 from bruteforce import bruteforce_algo
 from optimized import optimized_algo
 
@@ -10,16 +10,18 @@ capital = 500
 
 
 def main():
-    choice = input(
-        "Taper 'o' pour afficher un graphique, sinon, trouve le meilleur résultat: "
-    )
+    choice = view.input_choice_plot_or_algo()
     if choice.upper() == "O":
         plot_graphs()
     else:
-        found_the_best_result()
+        choice = view.input_choice_an_algo()
+        if choice == 1:
+            run_bruteforce()
+        else:
+            run_optimized()
 
 
-def found_the_best_result():
+def run_bruteforce():
     stocks_list = create_stocks_list()
 
     start_timer = perf_counter()
@@ -28,19 +30,20 @@ def found_the_best_result():
     )
     end_timer = perf_counter()
     bruteforce_time = end_timer - start_timer
-    print("Le résultat pour l'algorithme bruteforce est : ")
-    display_result_information(
+    view.display_result_information(
         bruteforce_best_profit, bruteforce_stocks_result, bruteforce_time
     )
 
+
+def run_optimized():
+    stocks_list = create_stocks_list()
     start_timer = perf_counter()
     optimized_best_profit, optimized_stocks_result = optimized_algo(
         capital, stocks_list
     )
     end_timer = perf_counter()
     optimized_time = end_timer - start_timer
-    print("Le résultat pour l'algorithme optimisé est : ")
-    display_result_information(
+    view.display_result_information(
         optimized_best_profit, optimized_stocks_result, optimized_time
     )
 
@@ -83,4 +86,5 @@ def plot_graphs():
 
 if __name__ == "__main__":
     main()
+    input("Taper pour quitter:")
     exit()
