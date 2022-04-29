@@ -15,7 +15,7 @@ def main():
         plot_graphs()
     else:
         choice = view.input_choice_an_algo()
-        if choice == 1:
+        if choice.upper() == "O":
             run_bruteforce()
         else:
             run_optimized()

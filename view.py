@@ -13,7 +13,7 @@ def input_choice_plot_or_algo():
 
 def input_choice_an_algo():
     choice = input(
-        "Pour exécuter l'algorithmes bruteforce taper 1, "
+        "Pour exécuter l'algorithmes bruteforce taper 'o', "
         "sinon, l'algorithme optimisé sera exécuter :"
     )
 
