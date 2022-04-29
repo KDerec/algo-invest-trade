@@ -13,8 +13,8 @@ def create_stocks_list(max_number_item=''):
         stocks_list = []
         for row in reader:
             name = row[0]
-            cost = int(row[1])
-            profitability = int(row[2])
+            cost = int(float(row[1]) * 100)
+            profitability = int(float(row[2]) * 100)
             i += 1
             if i == max_number_item:
                 break
@@ -35,5 +35,6 @@ def create_spent_capital(stocks_list):
 
     for stock in stocks_list:
         spent_capital += stock.cost
+    spent_capital = spent_capital / 100
 
     return spent_capital

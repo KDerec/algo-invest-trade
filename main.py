@@ -6,7 +6,7 @@ from bruteforce import bruteforce_algo
 from optimized import optimized_algo
 
 
-capital = 500
+capital = 500 * 100  # * 100 to handle decimal number
 
 
 def main():

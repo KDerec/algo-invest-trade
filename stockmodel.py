@@ -3,4 +3,4 @@ class Stock:
         self.name = name
         self.cost = cost
         self.profitability = profitability
-        self.profit = self.cost * (self.profitability / 100)
+        self.profit = self.cost * (self.profitability / 1000000)
