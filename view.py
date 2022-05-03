@@ -5,7 +5,7 @@ from controller import create_spent_capital
 def input_choice_plot_or_algo():
     choice = input(
         "Taper 'o' pour afficher un graphique, "
-        "sinon, choisir un algorithme avant de trouver le meilleur résultat : "
+        "sinon, choix d'un algorithme afin de trouver le meilleur résultat : "
     )
 
     return choice
@@ -14,7 +14,7 @@ def input_choice_plot_or_algo():
 def input_choice_an_algo():
     choice = input(
         "Pour exécuter l'algorithmes bruteforce taper 'o', "
-        "sinon, l'algorithme optimisé sera exécuter :"
+        "sinon, l'algorithme optimisé sera exécuté :"
     )
 
     return choice
@@ -26,9 +26,9 @@ def display_result_information(best_profit, stocks_result, time):
 
     print(
         f"""    
-    Le montant du bénéfice est de {best_profit}€.
-    La liste d'action est : {stocks_name_list}.
-    Le montant de l'investissement est de {spent_capital}€.
+    Montant du bénéfice : {best_profit}€.
+    Liste d'action acheté : {stocks_name_list}.
+    Montant de l'investissement : {spent_capital}€.
     Temps d'exécution du programme : {time} secondes.
     """
     )
