@@ -1,20 +1,22 @@
 def optimized_algo(capital, stocks_list):
     table = [[0 for x in range(capital + 1)] for x in range(len(stocks_list) + 1)]
 
-    for i in range(1, len(stocks_list) + 1):
+    for n in range(1, len(stocks_list) + 1):
         for c in range(1, capital + 1):
-            if stocks_list[i - 1].cost <= c:
-                table[i][c] = max(
-                    stocks_list[i - 1].profit
-                    + table[i - 1][c - stocks_list[i - 1].cost],
-                    table[i - 1][c],
+            if stocks_list[n - 1].cost <= c:
+                table[n][c] = max(
+                    stocks_list[n - 1].profit
+                    + table[n - 1][c - stocks_list[n - 1].cost],
+                    table[n - 1][c],
                 )
             else:
-                table[i][c] = table[i - 1][c]
+                table[n][c] = table[n - 1][c]
 
+    best_profit = round(table[-1][-1], 2)
+
+    stocks_selection = []
     c = capital
     n = len(stocks_list)
-    stocks_selection = []
 
     while c >= 0 and n >= 0:
         stock = stocks_list[n - 1]
@@ -24,4 +26,38 @@ def optimized_algo(capital, stocks_list):
 
         n -= 1
 
-    return round(table[-1][-1], 2), stocks_selection
+    return best_profit, stocks_selection
+
+
+if __name__ == "__main__":
+
+    class Stock:
+        def __init__(self, name, cost, profitability):
+            self.name = name
+            self.cost = cost
+            self.profitability = profitability
+            self.profit = self.cost * (self.profitability / 100)
+
+    capital = 5
+    stocks_list = [
+        Stock("Action-1", 4, 300),
+        Stock("Action-2", 3, 300),
+        Stock("Action-3", 2, 300),
+    ]
+    best_profit, stocks_result = optimized_algo(capital, stocks_list)
+
+    stocks_name_list = []
+    for stock in stocks_result:
+        stocks_name_list.append(stock.name)
+
+    spent_capital = 0
+    for stock in stocks_result:
+        spent_capital += stock.cost
+
+    print(
+        f"""    
+    Le montant du bénéfice est de {best_profit}€.
+    La liste d'action acheté est : {stocks_name_list}.
+    Le montant de l'investissement est de {spent_capital}€.
+    """
+    )
