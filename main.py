@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 from time import perf_counter
 import view
 from controller import create_stocks_list
+from controller import create_path_to_data
 from bruteforce import bruteforce_algo
 from optimized import optimized_algo
 
@@ -10,19 +11,31 @@ capital = 500 * 100  # * 100 to handle decimal number
 
 
 def main():
-    choice = view.input_choice_plot_or_algo()
-    if choice.upper() == "O":
-        plot_graphs()
-    else:
-        choice = view.input_choice_an_algo()
-        if choice.upper() == "O":
-            run_bruteforce()
+    while True:
+        choice = view.input_choice_data()
+        path_to_data, ok_for_bruteforce = create_path_to_data(choice)
+        if ok_for_bruteforce:
+            choice = view.input_choice_plot_or_algo()
+            if choice.upper() == "O":
+                plot_graphs(path_to_data)
+            else:
+                choice = view.input_choice_an_algo()
+                if choice.upper() == "O":
+                    run_bruteforce(path_to_data)
+                else:
+                    run_optimized(path_to_data)
         else:
-            run_optimized()
+            choice = view.input_choice_start_algo()
+            if choice.upper() == "O":
+                run_optimized(path_to_data)
+
+        choice = view.display_exit_message()
+        if choice.upper() == "Q":
+            exit()
 
 
-def run_bruteforce():
-    stocks_list = create_stocks_list()
+def run_bruteforce(path_to_data):
+    stocks_list = create_stocks_list(path_to_data)
 
     start_timer = perf_counter()
     bruteforce_best_profit, bruteforce_stocks_result = bruteforce_algo(
@@ -35,8 +48,8 @@ def run_bruteforce():
     )
 
 
-def run_optimized():
-    stocks_list = create_stocks_list()
+def run_optimized(path_to_data):
+    stocks_list = create_stocks_list(path_to_data)
     start_timer = perf_counter()
     optimized_best_profit, optimized_stocks_result = optimized_algo(
         capital, stocks_list
@@ -48,13 +61,13 @@ def run_optimized():
     )
 
 
-def plot_graphs():
+def plot_graphs(path_to_data):
     number_of_stock = []
     bruteforce_times = []
     optimized_times = []
 
     for i in range(1, 21):
-        stocks_list = create_stocks_list(i)
+        stocks_list = create_stocks_list(path_to_data, i)
 
         start_timer = perf_counter()
         bruteforce_best_profit, bruteforce_stocks_result = bruteforce_algo(
@@ -86,5 +99,3 @@ def plot_graphs():
 
 if __name__ == "__main__":
     main()
-    input("Taper pour quitter:")
-    exit()

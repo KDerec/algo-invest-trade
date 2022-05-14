@@ -11,10 +11,22 @@ def input_choice_plot_or_algo():
     return choice
 
 
-def input_choice_an_algo():
+def input_choice_data():
     choice = input(
-        "Pour exécuter l'algorithmes bruteforce taper 'o', "
-        "sinon, l'algorithme optimisé sera exécuté :"
+        """Veuillez choisir les données à analyser : 
+       - Taper '1' pour : data (20 actions);
+       - Taper '2' pour : dataset1 (1001 actions);
+       - Taper '3' pour : dataset2 (1000 actions)."""
+        "\nL'algorithme de force brute n'est pas disponible pour le choix 2 et 3."
+        "\nChoix du numéro : "
+    )
+
+    return choice
+
+
+def input_choice_start_algo():
+    choice = input(
+        "Taper 'o' pour exécuter l'algorithme optimisé, " "sinon, quitter : "
     )
 
     return choice
@@ -32,3 +44,12 @@ def display_result_information(best_profit, stocks_result, time):
     Temps d'exécution du programme : {time} secondes.
     """
     )
+
+
+def display_exit_message():
+    print(
+        "Tapez la lettre 'q' pour confirmez l'arrêt de l'application,"
+        " sinon, recommencer : "
+    )
+
+    return input()

@@ -2,8 +2,8 @@ import csv
 from stockmodel import Stock
 
 
-def create_stocks_list(max_number_item=""):
-    with open("data/dataset1_Python+P7.csv", newline="") as file:
+def create_stocks_list(path_to_data, max_number_item=""):
+    with open(path_to_data, newline="") as file:
         has_header = csv.Sniffer().has_header(file.read(1024))
         file.seek(0)
         reader = csv.reader(file)
@@ -43,3 +43,17 @@ def create_spent_capital(stocks_list):
     spent_capital = spent_capital / 100
 
     return spent_capital
+
+
+def create_path_to_data(choice):
+    if choice == "1":
+        path_to_data = "data/data.csv"
+        return path_to_data, True
+    if choice == "2":
+        path_to_data = "data/dataset1_Python+P7.csv"
+        return path_to_data, False
+    if choice == "3":
+        path_to_data = "data/dataset2_Python+P7.csv"
+        return path_to_data, False
+    else:
+        return None, None
