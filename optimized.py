@@ -30,6 +30,12 @@ def optimized_algo(capital, stocks_list):
 
 
 if __name__ == "__main__":
+    print(
+        "Ceci est un exemple pour l'analyse de trois actions (Action 1, 2 et 3) "
+        "avec chacune un bénéfice de 300% et un coût respectif de 4€, 3€ et 2€"
+        "\nPour une exécution plus intéressante du programme, veuillez consulter : "
+        "https://github.com/KDerec/algo-invest-trade"
+    )
 
     class Stock:
         def __init__(self, name, cost, profitability):
