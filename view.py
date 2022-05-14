@@ -24,6 +24,15 @@ def input_choice_data():
     return choice
 
 
+def input_choice_an_algo():
+    choice = input(
+        "Pour exécuter l'algorithmes bruteforce taper 'o', "
+        "sinon, l'algorithme optimisé sera exécuté :"
+    )
+
+    return choice
+
+
 def input_choice_start_algo():
     choice = input(
         "Taper 'o' pour exécuter l'algorithme optimisé, " "sinon, quitter : "
