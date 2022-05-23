@@ -1,4 +1,16 @@
 def bruteforce_algo(capital, stocks_list, stocks_selection=[]):
+    """
+    Test all combination of stock to buy and found the best profit.
+
+    Attrs:
+    - capital (int): capital to spent.
+    - stock_list (list): list of stock object.
+    - stocks_selection (list): list of selected stock object.
+
+    Returns:
+    - best_profit (float): amount of profit.
+    - stocks_selection (list): list of selected stock object.
+    """
     if stocks_list:
         profit_solution1, stocks_list_solution1 = bruteforce_algo(
             capital, stocks_list[1:], stocks_selection

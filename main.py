@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
-from time import perf_counter
 import view
+from time import perf_counter
 from controller import create_stocks_list
 from controller import create_path_to_data
 from bruteforce import bruteforce_algo
@@ -11,6 +11,7 @@ capital = 500 * 100  # * 100 to handle decimal number
 
 
 def main():
+    """Manage the running of the program."""
     while True:
         choice = view.input_choice_data()
         path_to_data, ok_for_bruteforce = create_path_to_data(choice)
@@ -35,6 +36,7 @@ def main():
 
 
 def run_bruteforce(path_to_data):
+    """Call functions to run bruteforce algorithm and display information."""
     stocks_list = create_stocks_list(path_to_data)
 
     start_timer = perf_counter()
@@ -49,6 +51,7 @@ def run_bruteforce(path_to_data):
 
 
 def run_optimized(path_to_data):
+    """Call functions to run optimized algorithm and display information."""
     stocks_list = create_stocks_list(path_to_data)
     start_timer = perf_counter()
     optimized_best_profit, optimized_stocks_result = optimized_algo(
@@ -62,6 +65,10 @@ def run_optimized(path_to_data):
 
 
 def plot_graphs(path_to_data):
+    """
+    Plot a graph to show relationship between number of stock and execution time
+    for bruteforce and optimized algorithms.
+    """
     number_of_stock = []
     bruteforce_times = []
     optimized_times = []

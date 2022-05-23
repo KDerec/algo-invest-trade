@@ -1,4 +1,15 @@
 def optimized_algo(capital, stocks_list):
+    """
+    Create a matrice of capital and profit to found the best combination of stock to buy.
+
+    Attrs:
+    - capital (int): capital to spent.
+    - stock_list (list): list of stock object.
+
+    Returns:
+    - best_profit (float): amount of profit.
+    - stocks_selection (list): list of selected stock object.
+    """
     table = [[0 for x in range(capital + 1)] for x in range(len(stocks_list) + 1)]
 
     for n in range(1, len(stocks_list) + 1):

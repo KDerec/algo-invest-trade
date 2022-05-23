@@ -3,6 +3,7 @@ from controller import create_spent_capital
 
 
 def input_choice_plot_or_algo():
+    """Input a choice and return his value."""
     choice = input(
         "Taper 'o' pour afficher un graphique, "
         "sinon, choix d'un algorithme afin de trouver le meilleur résultat : "
@@ -12,6 +13,7 @@ def input_choice_plot_or_algo():
 
 
 def input_choice_data():
+    """Input a choice and return his value."""
     choice = input(
         """Veuillez choisir les données à analyser : 
        - Taper '1' pour : data (20 actions);
@@ -25,6 +27,7 @@ def input_choice_data():
 
 
 def input_choice_an_algo():
+    """Input a choice and return his value."""
     choice = input(
         "Pour exécuter l'algorithmes bruteforce taper 'o', "
         "sinon, l'algorithme optimisé sera exécuté :"
@@ -34,6 +37,7 @@ def input_choice_an_algo():
 
 
 def input_choice_start_algo():
+    """Input a choice and return his value."""
     choice = input(
         "Taper 'o' pour exécuter l'algorithme optimisé, " "sinon, quitter : "
     )
@@ -42,6 +46,7 @@ def input_choice_start_algo():
 
 
 def display_result_information(best_profit, stocks_result, time):
+    """Display best profit, stocks name list, spent capital and execution time."""
     stocks_name_list = create_stocks_name_list(stocks_result)
     spent_capital = create_spent_capital(stocks_result)
 
@@ -56,6 +61,7 @@ def display_result_information(best_profit, stocks_result, time):
 
 
 def display_exit_message():
+    """Input a choice and return his value."""
     print(
         "Tapez la lettre 'q' pour confirmez l'arrêt de l'application,"
         " sinon, recommencer : "

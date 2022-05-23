@@ -3,6 +3,16 @@ from stockmodel import Stock
 
 
 def create_stocks_list(path_to_data, max_number_item=""):
+    """
+    Return a list of stock object.
+
+    Attrs:
+    - path_to_data (str): a path to csv file in data/.
+    - max_number_item (str or int): limit the number of items to return.
+
+    Returns:
+    - a list of stock object.
+    """
     with open(path_to_data, newline="") as file:
         has_header = csv.Sniffer().has_header(file.read(1024))
         file.seek(0)
@@ -28,6 +38,15 @@ def create_stocks_list(path_to_data, max_number_item=""):
 
 
 def create_stocks_name_list(stocks_list):
+    """
+    Return a list of stock name.
+
+    Attrs:
+    - stock_list (list): list of stock object.
+
+    Returns:
+    - a list of stock name
+    """
     stocks_name_list = []
     for stock in stocks_list:
         stocks_name_list.append(stock.name)
@@ -36,6 +55,15 @@ def create_stocks_name_list(stocks_list):
 
 
 def create_spent_capital(stocks_list):
+    """
+    Calculate and return a spent capital.
+
+    Attrs:
+    - stock_list (list): list of stock object.
+
+    Returns:
+    - spent capital.
+    """
     spent_capital = 0
 
     for stock in stocks_list:
@@ -46,6 +74,16 @@ def create_spent_capital(stocks_list):
 
 
 def create_path_to_data(choice):
+    """
+    Return a path to data and a boolean.
+
+    Attrs:
+    - choice (str): user choice.
+
+    Returns:
+    - path to data or None.
+    - boolean or None.
+    """
     if choice == "1":
         path_to_data = "data/data.csv"
         return path_to_data, True
