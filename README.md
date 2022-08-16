@@ -2,65 +2,60 @@
 
 
 <!-- PROJECT LOGO -->
-<br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="https://user.oc-static.com/upload/2020/09/18/1600429119334_P6.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/KDerec/algo-invest-trade/blob/master/images/logo.png"><img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Algo Invest Trade</h3>
-
+<h3 align="center">Algorithms</h3>
   <p align="center">
-    Learning project to discover algorithms.
-    <br />
+    This student project is the #5 of my training.<br>You can follow the previous <a href="https://github.com/KDerec/chesstournamentmanager">here</a> and next one <a href="https://github.com/KDerec/litreview">here</a>.
   </p>
 </div>
-
 
 
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#installation">Installation</a></li>
-        <ul>
-          <li><a href="#python-installation">Python installation</a></li>
-        </ul>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#built-with">Built With</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
 
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+### 🌱 Developed skills
+- Deconstruct a **problem**.
+- Develop an **algorithm** to solve a problem.
+- Compare algorithms using **Big-O notation**, **time complexity** and **memory analysis**.
+### 🚀 Project goal
+The goal is to **found the best combination** of market stocks to buy in stocks lists define by them name, cost, and profit.  
+**Bruteforce** algorithm and **dynamic programming** are use to found the best combination.  
+**Plotting graph** to compare the time complexity of the two algorithms for a list of 20 stocks. 
+**Display the best stocks list** to buy with invested capital and total profit.  
 
-The goal is to found the best combination of stocks to buy in a list of stocks define by them name, cost, and profit.
-Bruteforce algorithm and dynamic programming are use to found the best combination.
-You can plot a graph to compare the time complexity of the two algorithms for a list of 20 stocks.
-Finally, the two algorithms will display you the best stocks list with invest capital and total profit.
+Result example for **data.csv** and **bruteforce algorithm**: 
+
+    Montant du bénéfice : 99.08€.
+    Liste d'action acheté : ['Action-4', 'Action-5', 'Action-6', 'Action-8', 'Action-10', 'Action-11', 'Action-13', 'Action-18', 'Action-19', 'Action-20'].
+    Montant de l'investissement : 498.0€.
+    Temps d'exécution du programme : 1.4999400000000005 secondes.
+
+Graph of **time complexity** ploted with **matplotlib** for bruteforce and optimized algorithms:
+
+<a href="https://github.com/KDerec/algo-invest-trade/blob/master/images/time_complexity.jpg"><img src="images/time_complexity.jpg"></a>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
-### Built With
-
+## Built With
 * [Python](https://www.python.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- GETTING STARTED -->
@@ -118,24 +113,21 @@ Finally, the two algorithms will display you the best stocks list with invest ca
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### 
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Result example for data.csv and bruteforce algorithm : 
-
-    Montant du bénéfice : 99.08€.
-    Liste d'action acheté : ['Action-4', 'Action-5', 'Action-6', 'Action-8', 'Action-10', 'Action-11', 'Action-13', 'Action-18', 'Action-19', 'Action-20'].
-    Montant de l'investissement : 498.0€.
-    Temps d'exécution du programme : 1.4999400000000005 secondes.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 <!-- LICENSE -->
 ## License
-
 Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+
+<!-- CONTACT -->
+## Contact
+Kévin Dérécusson - kevin.derecusson@outlook.fr
+
+Project Link: [https://github.com/KDerec/algo-invest-trade](https://github.com/KDerec/algo-invest-trade)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<i>This student project is the #5 of my training.  
+You can follow the previous <a href="https://github.com/KDerec/chesstournamentmanager">here</a> and next one <a href="https://github.com/KDerec/litreview">here</a>.</i>
