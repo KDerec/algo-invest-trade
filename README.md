@@ -32,13 +32,17 @@
 - Deconstruct a **problem**.
 - Develop an **algorithm** to solve a problem.
 - Compare algorithms using **Big-O notation**, **time complexity** and **memory analysis**.
-### 🚀 Project goal
-The goal is to **found the best combination** of market stocks to buy in stocks lists define by them name, cost, and profit.  
+### 📖 Scenario
+I have just joined **AlgoInvest&Trade**, a financial company specialized in investment. 
+The company seeks to **optimize** its investment strategies with the help of **algorithms**, in order to generate more profits for its clients.
+### 🚧 Project goal
+**Found the best combination** of market stocks to buy in stocks lists define by them name, cost, and profit.  
+### 🚀 Deliverable
 **Bruteforce** algorithm and **dynamic programming** are use to found the best combination.  
 **Plotting graph** to compare the time complexity of the two algorithms for a list of 20 stocks. 
 **Display the best stocks list** to buy with invested capital and total profit.  
 
-Result example for **data.csv** and **bruteforce algorithm**: 
+Result example for [data.csv](https://github.com/KDerec/algo-invest-trade/blob/master/data/data.csv) and **bruteforce algorithm**: 
 
     Montant du bénéfice : 99.08€.
     Liste d'action acheté : ['Action-4', 'Action-5', 'Action-6', 'Action-8', 'Action-10', 'Action-11', 'Action-13', 'Action-18', 'Action-19', 'Action-20'].
